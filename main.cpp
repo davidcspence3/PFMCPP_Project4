@@ -51,6 +51,107 @@
  */
 
 #include <iostream>
+
+struct FloatType
+{
+  float add(float lhs, float rhs);
+  float subtract(float lhs, float rhs);
+  float multiply(float lhs, float rhs);
+  float divide(float lhs, float rhs);
+};
+
+struct DoubleType
+{
+  double add(double lhs, double rhs);
+  double subtract(double lhs, double rhs);
+  double multiply(double lhs, double rhs);
+  double divide(double lhs, double rhs);
+};
+
+struct IntType
+{
+  int add(int lhs, int rhs);
+  int subtract(int lhs, int rhs);
+  int multiply(int lhs, int rhs);
+  int divide(int lhs, int rhs);
+};
+
+
+float FloatType::add(float l, float r)
+{
+  return l + r;
+}
+
+float FloatType::subtract(float l, float r)
+{
+  return l - r;
+}
+
+float FloatType::multiply(float l, float r)
+{
+  return l * r;
+}
+
+float FloatType::divide(float l, float r)
+{
+  if(r == 0.0f) 
+  {
+    std::cout << std::endl;
+    std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
+  }
+  return l / r;
+}
+
+double DoubleType::add(double l, double r)
+{
+  return l + r;
+}
+
+double DoubleType::subtract(double l, double r)
+{
+  return l - r;
+}
+
+double DoubleType::multiply(double l, double r)
+{
+  return l * r;
+}
+
+double DoubleType::divide(double l, double r)
+{
+  if(r == 0.0) 
+  {
+    std::cout << "warning, floating point division by zero returns 'inf' !" << std::endl;
+  }
+  return l / r;
+}
+
+int IntType::add(int l, int r)
+{
+  return l + r;
+}
+
+int IntType::subtract(int l, int r)
+{
+  return l - r;
+}
+
+int IntType::multiply(int l, int r)
+{
+  return l * r;
+}
+
+int IntType::divide(int l, int r)
+{
+  if(r == 0) 
+  {
+    std::cout << "error, integer division by zero will crash the program!" << std::endl;
+    std::cout << "returning lhs" << std::endl;
+    return l;
+  }
+  return l / r;
+}
+
 int main() 
 {
     FloatType ft;
